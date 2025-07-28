@@ -32,3 +32,9 @@ scrollBtn.addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
+
+// Toggle mobile menu
+function toggleMenu() {
+  const nav = document.getElementById("nav-menu");
+  nav.classList.toggle("open");
+}
