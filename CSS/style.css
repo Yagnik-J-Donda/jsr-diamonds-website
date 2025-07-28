@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f0f0f;
   color: #f5f5f5;
-  background: #0f0f0f;
   line-height: 1.6;
 }
 
@@ -17,40 +17,39 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(18, 18, 18, 0.75);
   padding: 1rem 2rem;
+  background: rgba(18, 18, 18, 0.75);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #444;
   position: sticky;
   top: 0;
   z-index: 999;
+  flex-wrap: wrap;
 }
 
-.navbar .logo {
+.logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: gold;
-  letter-spacing: 1px;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-}
-
-.navbar ul li {
-  margin-left: 20px;
-}
-
-.navbar ul li a {
   text-decoration: none;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.navbar nav ul li a {
   color: #ccc;
+  text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.navbar ul li a:hover,
-.navbar ul li a.active {
+.navbar nav ul li a:hover,
+.navbar nav ul li a.active {
   color: gold;
 }
 
@@ -63,13 +62,13 @@ body {
 
 .hero-content h1 {
   font-size: 2.8rem;
-  margin-bottom: 1rem;
   color: gold;
+  margin-bottom: 1rem;
 }
 
 .hero-content p {
   font-size: 1.1rem;
-  color: #ddd;
+  color: #ccc;
   margin-bottom: 2rem;
 }
 
@@ -77,18 +76,19 @@ body {
   width: 100%;
   max-width: 1200px;
   height: 300px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.06);
   border: 2px dashed gold;
   border-radius: 12px;
-  margin: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-style: italic;
+  justify-content: center;
   color: #aaa;
+  font-style: italic;
+  padding: 1rem;
 }
 
-/* Section Styling */
+/* Sections */
 .section {
   padding: 4rem 2rem;
   text-align: center;
@@ -102,9 +102,8 @@ body {
 
 .section p {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto 2rem auto;
   color: #ccc;
-  margin-bottom: 2rem;
 }
 
 .alt-bg {
@@ -116,39 +115,86 @@ body {
   background: #111;
   padding: 1.5rem;
   text-align: center;
-  color: #888;
   font-size: 0.9rem;
+  color: #888;
   border-top: 1px solid #333;
 }
 
-/* Responsive */
+/* Scroll-To-Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 50%;
+  background-color: gold;
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 9999;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .navbar {
+    padding: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .navbar ul {
+  .navbar nav ul {
     flex-direction: column;
-    margin-top: 10px;
+    width: 100%;
+    padding-top: 10px;
   }
 
-  .navbar ul li {
-    margin: 10px 0;
+  .navbar nav ul li {
+    margin: 5px 0;
   }
 
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+  }
+
+  .image-placeholder {
+    height: 200px;
+    font-size: 0.9rem;
   }
 
   .section h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  .section p {
+    font-size: 0.95rem;
   }
 }
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: gold;
-  letter-spacing: 1px;
-  text-decoration: none; /* Ensure no underline */
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .navbar nav ul {
+    gap: 10px;
+  }
+
+  #scrollToTopBtn {
+    bottom: 16px;
+    left: 16px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 }
